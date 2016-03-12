@@ -1,3 +1,9 @@
+# Repo Directories
+
+
+# Repo Restricted Files
+*.zip
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
