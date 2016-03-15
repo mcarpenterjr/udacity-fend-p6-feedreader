@@ -58,13 +58,23 @@ $(function() {
      * hiding/showing of the menu element.
      */
 
-
+     it('The Menu is hidden, By default... Where did it go?', function() {
+       expect($('body').attr('class')).toBe('menu-hidden');
+     });
 
     /* TODO: Write a test that ensures the menu changes
      * visibility when the menu icon is clicked. This test
      * should have two expectations: does the menu display when
      * clicked and does it hide when clicked again.
      */
+
+     it('The Menu changes when clicked, Found IT!', function() {
+       $('.menu-icon-link').trigger('click');
+       expect($('body').attr('class')).not.toBe('menu-hidden');
+
+       $('.menu-icon-link').trigger('click');
+       expect($('body').attr('class')).toBe('menu-hidden');
+     });
 
   });
 
@@ -78,18 +88,19 @@ $(function() {
      * the use of Jasmine's beforeEach and asynchronous done() function.
      */
 
-     var feedReader = new loadFeed();
+     // How our function is called has to be done slightly different
+     // than in the P6 course for TDD, explainging jasmine and ajax
+     // requests.
 
-     beforeEach(function() {
-       feedReader(function() {
-         done();
-       });
+     beforeEach(function(done) {
+       loadFeed(0, done);
      });
 
-     it('completes its work', function () {
-
+     it('There is atleast one article in the .feed container and can has link.', function (done) {
+       expect($('.feed').find('.entry').length).toBeGreaterThan(0);
+       expect($('.tpl-feed-list-item')).not.toBe(null);
+       done();
      });
-
   });
 
   /* TODO: Write a new test suite named "New Feed Selection" */
@@ -99,6 +110,17 @@ $(function() {
      * by the loadFeed function that the content actually changes.
      * Remember, loadFeed() is asynchronous.
      */
+
+     var oldFeed = $('.feed').html();
+     beforeEach(function(done) {
+       loadFeed(0, done);
+     });
+
+     it('actually loads the next feed, if not we would have old news. . .', function(done) {
+       var newFeed = $('.feed').html();
+       expect(newFeed).not.toBe(oldFeed);
+       done();
+     });
 
   });
 }());
