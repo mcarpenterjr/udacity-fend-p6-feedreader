@@ -3,7 +3,6 @@ node_modules/
 
 # Repo Restricted Files
 *.zip
-SpecRunner.html
 
 # Windows image file caches
 Thumbs.db
