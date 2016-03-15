@@ -1,6 +1,7 @@
 # Repo Directories
+node_modules/
 
-# Repo Root Files
+# Repo Restricted Files
 *.zip
 
 # Windows image file caches
