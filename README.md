@@ -1,3 +1,11 @@
+# The Completed Project
+
+## Running the Feed Reader
+
+You can launch the feed reader from the `_src` folder and opening `index.html` in your favorite browser. This will load the feed reader, jasmine will run the tests upon loading and the results will be displayed at the bottom of the page.
+
+*the original readme below, has been left intact for reference purposes*
+
 # Project Overview
 
 In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
