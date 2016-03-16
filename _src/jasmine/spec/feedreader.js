@@ -10,13 +10,13 @@ $(function() {
     });
 
     /* The following expectations interate through the feed object/array
-    *   and make sure a name and url exist for each index
-    */
+     *   and make sure a name and url exist for each index
+     */
 
     it('has url entries', function() {
       for (var i = 0; i < allFeeds.length; i++) {
         expect(allFeeds[i].url).toBeDefined();
-        expect(allFeeds[i].url).not.toBeNull();
+        expect(allFeeds[i].url.length).toBeGreaterThan(0);
       }
 
     });
@@ -24,7 +24,7 @@ $(function() {
     it('has name entries', function() {
       for (var i = 0; i < allFeeds.length; i++) {
         expect(allFeeds[i].name).toBeDefined();
-        expect(allFeeds[i].name).not.toBeNull();
+        expect(allFeeds[i].name.length).toBeGreaterThan(0);
       }
 
     });
@@ -34,8 +34,8 @@ $(function() {
   describe('The Menu', function() {
 
     /* We check to see if the menu is hidden,
-    *   then we check to make sure it changes on a click event.
-    */
+     *   then we check to make sure it changes on a click event.
+     */
 
     it('The Menu is hidden, By default.', function() {
       expect($('body').hasClass('menu-hidden')).toBeTruthy();
@@ -54,8 +54,8 @@ $(function() {
   describe('Initial Entries', function() {
 
     /* We make sure the feed container is populated with atleast one item
-    *    with a link.
-    */
+     *    with a link.
+     */
 
     beforeEach(function(done) {
       loadFeed(0, done);
@@ -63,7 +63,6 @@ $(function() {
 
     it('There is atleast one article in the .feed container with a link.', function() {
       expect($('.feed').find('.entry').length).toBeGreaterThan(0);
-      expect($('.entry-link')).not.toBe(null);
     });
 
   });
@@ -71,18 +70,18 @@ $(function() {
   describe('New Feed Selection', function() {
 
     /*
-    *  We evaluate a with b to check if a new feed has been loaded or
-    *  if it is just a duplicate of  the first feed
-    */
+     *  We evaluate a with b to check if a new feed has been loaded or
+     *  if it is just a duplicate of  the first feed
+     */
 
-     var a, b;
+    var a, b;
 
-     beforeEach(function(done) {
-     loadFeed(0, function() {
-       a = $('.entry').html();
-       done();
-     });
-   });
+    beforeEach(function(done) {
+      loadFeed(0, function() {
+        a = $('.entry').html();
+        done();
+      });
+    });
 
     it('actually loads the next feed.', function(done) {
       loadFeed(1, function() {
