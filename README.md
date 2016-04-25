@@ -4,6 +4,8 @@
 
 You can launch the feed reader from the `_src` folder and opening `index.html` in your favorite browser. This will load the feed reader, jasmine will run the tests upon loading and the results will be displayed at the bottom of the page.
 
+[Live Version](http://mcarpenterjr.github.io/udacity-fend-p6-feedreader/)
+
 *the original readme below, has been left intact for reference purposes*
 
 # Project Overview
